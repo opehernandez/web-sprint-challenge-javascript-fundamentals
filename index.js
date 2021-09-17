@@ -220,9 +220,32 @@ class CuboidMakerTwo{
 // console.log(cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
 
+class CubeMaker extends CuboidMakerTwo {
+  constructor(length) {
+    super(length);  // will allow cubeMaker to inherit CuboidMaker's properties, only 1 value since its a cube.
+    this.length = length;
+  }
+  calculateDiagonal() {
+    let diag = (Math.sqrt(3) * this.length).toFixed(4);  //Calculates the space diagonal of the cube
+    console.log(`The diagonal of the cube is:`)
+    return diag;
+  }
+  
+  volume() {
+    console.log(`The volume of the cube is:`)
+    return Math.pow(this.length, 3);
+  }
 
-
-
+  surfaceArea() {
+    console.log(`The surface area of the cube is:`)
+    return 6 * this.length * this.length;
+  }
+}
+console.log("CubeMaker extends CuboidMakerTwo------------------------------->")
+const cube = new CubeMaker(5)
+console.log(cube.volume());
+console.log(cube.surfaceArea());
+console.log(cube.calculateDiagonal());
 
   
 
