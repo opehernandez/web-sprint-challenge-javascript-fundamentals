@@ -1,3 +1,4 @@
+Osmanys Perez
 # Sprint Challenge - JavaScript Fundamentals
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
@@ -25,18 +26,54 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
-A: 
+    
+    A: .map takes an array, make a copy and then modify it. should not be used if the aray it return won't be used, or if the value of the callback function is not used.
+        you can use .map return an array single key-value pair of the objects inside another array.
+        example: arr1 = [
+            {name: "Mike", age: 23, location: location}
+            {name: "Stuart", age: 18, location: location}
+            {name: "Tony", age: 25, location: location}
+            ]
+            arr1.map(item => item.name) //returns ["Mike", Stuart, Tony]
+
+        .reduce takes an array and uses its values to calculate a new value. it returns a single value.
+        you could use .reduce to calculate an average or a total. Takes in 2 parameters(a function and a starting value). The function
+        inside filter will also take 2 parameters, the first one is the accumulator that will keep the running total of the operation, the
+        second one the current item that the function is working on.
+        example: arr1 = [
+            {name: "Mike", age: 23, location: location}
+            {name: "Stuart", age: 18, location: location}
+            {name: "Tony", age: 25, location: location}
+            ]
+            arr1.reduce((accumulator, current) => (accumulator += current.age) / 2, 0) // Will return the average age of all objects in arr1
+
+        .filter filters the array it receives based on a condition, it will return an array of objects or values that evaluate to true for its condition.
+        it can be used to filter out all objects inside an array that do not meet the desired condition.
+        example: arr1 = [
+            {name: "Mike", age: 23, location: location}
+            {name: "Stuart", age: 18, location: location}
+            {name: "Tony", age: 25, location: location}
+            ]
+            arr1.filter(items => item.age > 20) //will filter out all objects whose age value is less than 20, returning an array of objects that met the condition
+
+
 
 2. Explain the difference between a callback and a higher order function.
 A: A callback is a function that gets passed as an argument to another function, while higher order are functions that take other functions as arguments.
     note that a function can be both a callback function and a higher order function at the same time.
 
 3. Explain what a closure is.
-A: A closure happens when a (inner) function is enclosed in a (outter) function, and has access to the outer function even whe that function has cosed.
+A: A closure happens when a (inner) function is enclosed in a (outter) function, and has access to the outer function data even whe that function has cosed.
 
 4. Describe the four principles of the 'this' keyword.
+A:  1 global binding(window binding): when "this" is used in a function in the global scope, it points to the window object.
+    2 implicit binding: when a function is called with a preceding dot, "this" points to the object that contains said function.
+    3 explicit binding: when call() or apply() are used, "this" is explicitly defined
+    4 new binding: in a constructor function, "this" points to the instance that is going to be created by that constructor function(new Keyword)
+
 
 5. Why do we need super() in an extended class?
+A: super() will make sure that the child class inherits the parent class properties.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
